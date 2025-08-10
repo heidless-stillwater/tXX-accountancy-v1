@@ -6,7 +6,6 @@ import { Phone, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/common/logo';
-import { ThemeSwitcher } from '../theme-switcher';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -60,7 +59,6 @@ export function Header() {
               <Link href="#contact">Start Here</Link>
             </Button>
           </div>
-          <ThemeSwitcher />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="xl:hidden">

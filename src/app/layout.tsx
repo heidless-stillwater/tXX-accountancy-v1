@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { ThemeProvider } from '@/components/theme-provider';
-import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
@@ -33,14 +31,10 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
-        <ThemeProvider>
-          <TooltipProvider>
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <Toaster />
-          </TooltipProvider>
-        </ThemeProvider>
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+        <Toaster />
       </body>
     </html>
   );
