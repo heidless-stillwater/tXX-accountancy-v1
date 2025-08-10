@@ -4,8 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { Logo } from '@/components/common/logo';
+import { ThemeSwitcher } from '../theme-switcher';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -30,13 +37,15 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 shadow-md backdrop-blur-sm' : 'bg-transparent'
+        isScrolled
+          ? 'bg-background/95 shadow-md backdrop-blur-sm'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Logo />
         <nav className="hidden items-center gap-6 xl:flex">
-          {navLinks.map((link) => (
+          {navLinks.map(link => (
             <Link
               key={link.href}
               href={link.href}
@@ -47,6 +56,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
+          <ThemeSwitcher />
           <div className="hidden items-center gap-4 xl:flex">
             <a
               href="tel:1234567890"
@@ -73,7 +83,7 @@ export function Header() {
               <div className="flex h-full flex-col gap-6 p-6">
                 <Logo />
                 <nav className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
+                  {navLinks.map(link => (
                     <Link
                       key={link.href}
                       href={link.href}
@@ -92,7 +102,12 @@ export function Header() {
                     <Phone className="h-5 w-5" />
                     1234 567 890
                   </a>
-                  <Button asChild size="lg" className="w-full text-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full text-lg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     <Link href="#contact">Start Here</Link>
                   </Button>
                 </div>
