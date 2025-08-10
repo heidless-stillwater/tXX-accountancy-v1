@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xl': '1100px',
+        'xl': '1200px',
       },
       fontFamily: {
         body: ['Lato', 'sans-serif'],
