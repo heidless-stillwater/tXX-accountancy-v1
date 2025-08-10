@@ -3,6 +3,9 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
+import { Header } from '@/components/common/header';
+import { Footer } from '@/components/common/footer';
 
 export const metadata: Metadata = {
   title: 'AccountantAI - Modern Chartered Accountancy',
@@ -29,10 +32,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
+      <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
         <ThemeProvider>
           <TooltipProvider>
-            {children}
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>
