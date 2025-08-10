@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xl': '2000px',
+      },
       fontFamily: {
         body: ['Lato', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
